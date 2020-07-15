@@ -55,7 +55,7 @@ Local URL: http://localhost:8501
 
 Network URL: http://192.168.86.126:8501
 ```
-will appear on your screen, click on the local URL to view your application on a brower.
+Click on the local URL to view your application on a brower.
 
 
 ## See Also
