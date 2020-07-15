@@ -1,8 +1,6 @@
 # Open-Data-Forecasting
 FYP Fall 2019
 
-# Open Data Forecasting
-
 Using census data provided by LFD, we are predicting the population of Pakistan till the year 2025 on National, Provincial, and District levels.
 
 ## Requirements
