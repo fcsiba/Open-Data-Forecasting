@@ -40,12 +40,16 @@ st.sidebar.markdown("### Predicted population per year")
 st.markdown("### Actual Population based on our Dataset")
 sum = df.groupby(['year'])['Total'].sum().reset_index()
 
-#histogram or piechart
-select = st.sidebar.selectbox('Visualization Type', ['Histogram', 'Pie Chart',"Map"], key='1')
+#barchart or piechart
+select = st.sidebar.selectbox('Visualization Type', ['Bar Chart', 'Pie Chart',"Map"], key='1')
 #if not st.sidebar.checkbox():
     #st.markdown("## Population Predicition")
-if select == "Histogram":
+if select == "Bar Chart":
     fig = px.bar(sum, x='year', y='Total', color='year')
+    fig.update_layout(xaxis = {'type': 'category'})
+    #fig = px.histogram(sum, x="year", histnorm='Total')
+    #fig = px.bar(sum, x='year', y='Total', height=300)
+    #fig = go.Figure([go.Bar(x=[2007, 2009, 2011, 2013, 2015], y='Total')])
     st.plotly_chart(fig)
 elif select == "Pie Chart":
     fig = px.pie(sum, values='Total', names='year')
@@ -246,8 +250,8 @@ def model(year):
         return df, df2
 
 model_pak, t_pop =  model(year)
-if (select == "Histogram"):
-    fig = px.bar(model_pak, x='Age Bracket', y='Population', color = 'Age Bracket' ) 
+if (select == "Bar Chart"):
+    fig = px.bar(model_pak, x='Age Bracket', y='Population', color='Age Bracket') 
     st.write("The prediction is for the Year " + str(year), fig)
     st.write("The Total Population for the Year " + str(year)+ " is ", int(t_pop.loc[0:4][["Total"]].sum()))
 elif (select == "Pie Chart"):
@@ -424,7 +428,7 @@ def model(year, province):
 
 
 model_prov, t_pop_pro =  model(year, province)
-if (select == "Histogram"):
+if (select == "Bar Chart"):
     fig = px.bar(model_prov, x='Age Bracket', y='Population', color = 'Age Bracket')
     st.write("The prediction is for Province "+ province + " for the Year " + str(year), fig)
     st.write("The prediction is for Province "+ province + " for the Year " + str(year), int(t_pop_pro.Total.sum()))
@@ -610,7 +614,7 @@ def model(year, district):
         return df, df2
 
 model_dist, t_pop_dist =  model(year, district)
-if (select == "Histogram"):
+if (select == "Bar Chart"):
     fig = px.bar(model_dist, x='Age Bracket', y='Population', color = 'Age Bracket')
     st.write("The prediction is for District "+ district + " for the Year " + str(year), fig)
     st.write("The prediction is for District "+ district + " for the Year " + str(year), int(t_pop_dist.Total.sum()))
