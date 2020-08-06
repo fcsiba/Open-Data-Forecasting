@@ -796,9 +796,6 @@ elif nav == "National Level Prediction":
             'Please Select the Year you want prediction for',
             (2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025))
 
-        #paragraph 
-        st.markdown('## **National Level Prediction** ')
-
         #code for overall
         def model(year):
             if(year == 2016):
@@ -963,6 +960,7 @@ elif nav == "National Level Prediction":
 
         st.write(" ")
         st.write(" ")
+        st.markdown('## **National Level Prediction** ')
         st.write(" ")
         st.write(" ")
         st.write(" ")
@@ -1374,18 +1372,21 @@ elif nav == "Provincial Level Prediction":
             number = {'font': {'color': "#304233"}}
         ))
 
+        
+
         #st.write("The Population of Literate People in the Year " + str(year) + " is ", lit_pop, fig)
         #st.write("The Change in Literate people in the Year "+ str(year)+" compared to " + str(year-1)+ " is ", int(t_pop_pro.loc[0:4][["Total"]].sum()*data_pct_province.loc[data_pct_province["province"] == province, "pct_change"].sum()))
         #fig = px.bar(model_prov, x='Age Bracket', y='Population', color = 'Age Bracket')
         st.write(" ")
         st.write(" ")
+        st.markdown('## **Provincial Level Prediction** ')
         st.write(" ")
         st.write(" ")
         st.write(" ")
         st.write(" ")
         st.write(fig)
         st.write(" ")
-        st.write("The Population of Literate People in the Year " + str(year) + " is ", lit_pop)
+        st.write("The Population of Literate People in the Year " + str(year) + " for " + province + " is ", lit_pop)
 
         
 
